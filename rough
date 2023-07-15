@@ -1,0 +1,120 @@
+/*import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { TrackballControls } from "three/examples/jsm/controls/TrackballControls.js";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+
+//import WebGL from 'three/addons/capabilities/WebGL.js';
+//import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+const fileInput = document.getElementById('file-input');
+    const selectedFile = document.getElementById('selected-file');
+    const errorMessage = document.getElementById('error-message');
+    const canvasContainer = document.getElementById('canvas-container');
+
+    fileInput.addEventListener('change', handleFileUpload);
+
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      
+      if (file) {
+        const fileName = file.name;
+        const fileExtension = fileName.split('.').pop();
+        if (fileExtension.toLowerCase() !== 'glb') {
+          errorMessage.textContent = 'Please select a GLB file.';
+          selectedFile.textContent = '';
+          fileInput.value = '';
+          return;
+        }
+        if (fileExtension.toLowerCase() === 'glb'){
+          console.log("uploaded successfully")
+
+        }
+        
+        selectedFile.textContent = `Selected File: ${fileName}`;
+        errorMessage.textContent = '';
+        // You can perform further operations with the GLB file here
+		const reader = new FileReader();
+        reader.onload = function(event) {
+          const contents = event.target.result;
+          displayGLBModel(contents);
+        };
+        reader.readAsArrayBuffer(file);
+      }
+    }
+
+	const scene=new THREE.Scene();
+	const camera=new THREE.PerspectiveCamera(60,window.innerWidth/innerHeight,0.1,1000);
+	const canvas=document.querySelector('.webgl')
+	const loader=new GLTFLoader();
+	const renderer=new THREE.WebGL1Renderer({ antialias: true });
+	const light=new THREE.DirectionalLight(0xffffff,1)
+	const material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+	const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+	const dracoLoader = new DRACOLoader();
+	//renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
+
+	dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+	loader.setDRACOLoader( dracoLoader );
+	light.position.set(2,2,5)
+	scene.add(light)
+	
+	camera.position.z=5;
+function displayGLBModel(contents){
+	loader.parse(
+		contents,'',
+		function(glb){
+			console.log(glb)
+			const root=glb.scene;
+			root.scale.set(0.05,0.1,0.1)
+			scene.add(root)
+
+			const animations = glb.animations;
+
+    // Create an animation mixer
+    const mixer = new THREE.AnimationMixer(root);
+
+    // Play the animations
+    animations.forEach((clip) => {
+      const action = mixer.clipAction(clip);
+      action.play();
+    });
+
+    // Animate the model
+    function animates() {
+        requestAnimationFrame(animates);
+
+        // Update the animation mixer
+        mixer.update(0.01); // Pass the time delta value here
+
+
+        // Render the scene with the camera
+        renderer.render(scene, camera);
+      }
+
+	document.body.appendChild( renderer.domElement );
+	renderer.setSize(window.innerWidth,window.innerHeight)
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio , 2))
+	renderer.shadowMap.enabled=true
+	renderer.gammaOuput=true
+
+function animate(){
+	requestAnimationFrame( animate );
+	renderer.render( scene, camera );
+
+
+}
+animate();
+			
+		},
+		
+		function(xhr){
+			console.log((xhr.loaded/xhr.total*100)+'% loaded');
+		},
+		function ( error ) {
+	
+			console.log( 'An error happened' );
+	
+		}
+	);
+}*/

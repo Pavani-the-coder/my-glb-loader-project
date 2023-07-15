@@ -1,0 +1,31 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+  }
+  
+  #upload-container {
+	display: flex;
+	align-items: center;
+  }
+  
+  #file-input {
+	display: none;
+  }
+  
+  #file-label {
+	padding: 10px 15px;
+	background-color: #4CAF50;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  #selected-file {
+	margin-left: 10px;
+	font-weight: bold;
+  }
+  
+  #error-message {
+	color: red;
+	margin-top: 10px;
+  }

@@ -1,0 +1,25 @@
+{
+    "name": "DUMMY",
+    "short_name": "Model Viewer",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "/icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "serviceworker": {
+      "src": "/service-worker.js",
+      "scope": "/"
+    }
+  }
+  

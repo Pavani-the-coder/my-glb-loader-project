@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GLB File Uploader</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered:', registration);
+          })
+          .catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</head>
+<body>
+  <h2>GLB File Uploader</h2>
+  <div id="upload-container">
+    <input type="file" id="file-input" accept=".glb">
+    <label for="file-input" id="file-label">Select GLB File</label>
+    <span id="selected-file"></span>
+  </div>
+  <p id="error-message"></p>
+  <canvas class='webgl' id="canvas-container"></canvas>
+  <script defer type="module" src="/index.js">
+  </script>
+  
+</body>
+</html>
+
+
+
